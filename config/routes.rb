@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'recipes#index'
+  root to: 'categories#index'
 
   resources :users, only: [:new, :create, :show]
 
@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   # resources :recipes do 
   #   resources :recipes_ingredients
   # end
-  
+
 end

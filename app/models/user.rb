@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :recipes
+  has_many :recipes, dependent: :destroy
 
   validates :username, :email, { presence: true, uniqueness: true }
   validate :has_password
