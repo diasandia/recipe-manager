@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  get 'categories/index'
 
-  get 'categories/new'
+  root to: 'categories#index'
 
-  get 'categories/create'
+  resources :users, only: [:new, :create, :show]
 
-  get 'categories/show'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :sessions, only: [:new, :create, :destroy]
+  
+  resources :categories, only: [:index, :show]
+  
+  resources :categories do 
+    resources :recipes
+  end
+  
 end
