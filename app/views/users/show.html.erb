@@ -1,7 +1,6 @@
 <h1>Welcome , <%= @user.username %></h1>
 
 <% if @user.recipes %>
-
 	<p>Here are your submitted recipes.</p>
 	
 	<% @user.get_user_recipe_categories.each do |category| %>
