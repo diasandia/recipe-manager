@@ -1,0 +1,14 @@
+<h1>User Registration</h1>
+
+<%= form_for @user, url: { action: "create" } do |f| %>
+  <%= f.label :username, 'username: ' %>
+  <%= f.text_field :username %>
+  <br>
+  <%= f.label :email, 'email: ' %>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :password, 'password: ' %>
+  <%= f.password_field :password %>
+  <br>
+  <%= submit_tag "register" %>
+<% end %>

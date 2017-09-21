@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+ 	font-family: verdana;
+ 	font-size: 15px;
+ }
+
+ span.recipe {
+ 	color: red;
+ 	font-size: 14px;
+ 	
+ }
