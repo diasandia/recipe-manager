@@ -4,11 +4,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    # @category = Category.find(params[:id])
-    # @recipe = @category.recipes
-    # p "*" * 100
-    # p @recipe
-    @recipe = Recipe.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @recipe = @category.recipes.find(params[:id])
   end
 
   def new
@@ -19,13 +16,13 @@ class RecipesController < ApplicationController
 
   def edit
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.find(params[:id])
   end
 
   def create
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.new(recipe_params)
 
     if @recipe.save
@@ -38,7 +35,7 @@ class RecipesController < ApplicationController
 
   def update
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.find(params[:id])
 
     if @recipe.update(recipe_params)
@@ -51,7 +48,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.find(params[:id])
     @recipe.destroy
 
