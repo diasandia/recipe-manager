@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170921171447) do
     t.text "description"
   end
 
-  create_table "recipes_ingredients", force: :cascade do |t|
+  create_table "measurements", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.integer "amount"
@@ -50,7 +50,19 @@ ActiveRecord::Schema.define(version: 20170921171447) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipes_ingredients", force: :cascade do |t|
+  create_table "recipes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "category_id"
+    t.string "name"
+    t.integer "difficulty"
+    t.integer "prep_time"
+    t.text "directions"
+    t.boolean "submitted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "measurements", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.integer "amount"
