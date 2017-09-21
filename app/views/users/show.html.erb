@@ -14,10 +14,8 @@
 				Preparation Time: <%= recipe.prep_time %> minutes<br>
 				Difficulty rating: <%= recipe.difficulty %><br>
 				Directions: <%= recipe.directions %><br><br>
-				link_to "Edit this recipe", recipe_edit_path
-
-
-				<!--<a href="/recipes/<%= recipe.id %>/edit">Edit this recipe</a>--></li>	
+				<%= link_to "Edit this recipe", controller: "recipes", action: "edit", 
+				id:recipe %></li>	
 			<% end %>
 		</ul>
 	<% end %>
