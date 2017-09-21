@@ -6,15 +6,13 @@
 
 <h4>Ingredients:</h4>
 <ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
+  <% @recipe.measurements.each do |measurement| %>
+    <li><%= measurement.ingredient.name %></li>
   <% end %>
 </ul>
 
 <h4>Directions:</h4>
 <p><%= @recipe.directions %></p>
 
-<% if current_user&.id == @recipe.user_id %>
-  <%= render '/shared/form' %>
-<% end %>
+
 
