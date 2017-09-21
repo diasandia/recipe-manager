@@ -16,48 +16,13 @@ ActiveRecord::Schema.define(version: 20170921171447) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "recipes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "category_id"
-    t.string "name"
-    t.integer "difficulty"
-    t.integer "prep_time"
-    t.text "directions"
-    t.boolean "submitted", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image"
-    t.text "description"
-  end
-
-  create_table "measurements", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-    t.integer "amount"
-    t.string "measurement_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "recipes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "category_id"
-    t.string "name"
-    t.integer "difficulty"
-    t.integer "prep_time"
-    t.text "directions"
-    t.boolean "submitted", default: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,8 +30,20 @@ ActiveRecord::Schema.define(version: 20170921171447) do
   create_table "measurements", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
-    t.integer "amount"
-    t.string "measurement_type"
+    t.integer "amount", null: false
+    t.string "measurement_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "category_id"
+    t.string "name", null: false
+    t.integer "difficulty", null: false
+    t.integer "prep_time", null: false
+    t.text "directions", null: false
+    t.boolean "submitted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
