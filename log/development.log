@@ -833,3 +833,412 @@ Processing by RecipesController#index as HTML
 Completed 200 OK in 37ms (Views: 31.3ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-20 16:06:22 -0700
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  Rendered categories/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navbar.html.erb (1.6ms)
+  Rendered layouts/_errors.html.erb (0.9ms)
+Completed 200 OK in 486ms (Views: 461.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:06:32 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+Completed 200 OK in 132ms (Views: 51.9ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:06:53 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+Completed 200 OK in 80ms (Views: 67.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:07:16 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (16.9ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `recipe' for #<Category:0x007fb852262f48>
+Did you mean?  recipes
+               recipes=):
+    1: <h1><%= @category.name %></h1>
+    2: <% @category.recipe.all %>
+    3: 
+    4: <ul>
+    5:   <% @recipes.each do |recipe| %>
+  
+app/views/categories/show.html.erb:2:in `_app_views_categories_show_html_erb___1495209969897842167_70214859966480'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:07:23 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+Completed 200 OK in 50ms (Views: 42.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:07:29 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+Completed 200 OK in 54ms (Views: 49.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:45:03 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_navbar.html.erb (2.0ms)
+  Rendered layouts/_errors.html.erb (1.1ms)
+Completed 200 OK in 130ms (Views: 92.6ms | ActiveRecord: 1.9ms)
+
+
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (8.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (11.5ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "category_id", "name", "difficulty", "prep_time", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["category_id", 1], ["name", "food"], ["difficulty", 10], ["prep_time", 40], ["directions", "make food"], ["created_at", "2017-09-20 23:53:39.115072"], ["updated_at", "2017-09-20 23:53:39.115072"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:53:43 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (78.4ms)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 4.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `dishname' for #<Recipe:0x007fb8578405c8>):
+    2: 
+    3: <ul>
+    4:   <% @recipes.each do |recipe| %>
+    5:   <li><a href="/recipes/<%= recipe.id %>"><%= recipe.dishname %></a></li>
+    6:   <li>submitted by: <a href="/users/<%= recipe.user.id %>"><%= recipe.user %></a></li>
+    7:   <% end %>
+    8: </ul>
+  
+app/views/categories/show.html.erb:5:in `block in _app_views_categories_show_html_erb___1495209969897842167_70214859658360'
+app/views/categories/show.html.erb:4:in `_app_views_categories_show_html_erb___1495209969897842167_70214859658360'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:53:54 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (27.5ms)
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+Completed 200 OK in 81ms (Views: 68.0ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:54:05 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User:0x007fb857919b98>):
+    3: <ul>
+    4:   <% @recipes.each do |recipe| %>
+    5:   <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+    6:   <li>submitted by: <a href="/users/<%= recipe.user.id %>"><%= recipe.user.name %></a></li>
+    7:   <% end %>
+    8: </ul>
+  
+app/views/categories/show.html.erb:6:in `block in _app_views_categories_show_html_erb___1495209969897842167_70214860100660'
+app/views/categories/show.html.erb:4:in `_app_views_categories_show_html_erb___1495209969897842167_70214860100660'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:54:10 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navbar.html.erb (9.9ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+Completed 200 OK in 58ms (Views: 50.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 16:54:23 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+Completed 200 OK in 63ms (Views: 57.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:00:56 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (4.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (4.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (23.7ms)
+  Rendered layouts/_navbar.html.erb (5.7ms)
+  Rendered layouts/_errors.html.erb (2.6ms)
+Completed 200 OK in 155ms (Views: 119.9ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:33:52 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (5.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (6.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (36.5ms)
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 12.3ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/config
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/images
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/node_modules):
+    4:     <title>RecipeManager</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/application.css.sass:17
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1574703332018705833_70214852809420'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:41:27 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (2.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (19.3ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 3.6ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: config.
+Load paths:
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/config
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/images
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/node_modules):
+    4:     <title>RecipeManager</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/application.css.sass:17
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1574703332018705833_70214814408280'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:42:44 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/config
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/images
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/node_modules):
+    4:     <title>RecipeManager</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/application.css.sass:18
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1574703332018705833_70214838324780'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:55:52 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (16.1ms)
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/config
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/images
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/node_modules):
+    4:     <title>RecipeManager</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/application.css.sass:1
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1574703332018705833_70214836258580'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:56:02 -0700
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (42.1ms)
+Completed 500 Internal Server Error in 6602ms (ActiveRecord: 15.8ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/config
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/images
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/node_modules
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/javascripts
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/fonts
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/images):
+    4:     <title>RecipeManager</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:12
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__1529784193485547913_70245211258360'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:56:41 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (43.1ms)
+Completed 500 Internal Server Error in 3823ms (ActiveRecord: 13.5ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/config
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/images
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/app/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.4/lib/assets/compiled
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/hazenwillbot/Desktop/phase_3/recipe-manager/node_modules
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/javascripts
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/fonts
+  /Users/hazenwillbot/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.2/assets/images):
+    4:     <title>RecipeManager</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:12
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__485999959157386859_70138844250480'
+Started GET "/categories/1" for 127.0.0.1 at 2017-09-20 17:58:36 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered categories/show.html.erb within layouts/application (42.3ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+Completed 200 OK in 4622ms (Views: 4546.8ms | ActiveRecord: 12.5ms)
+
+
