@@ -1,0 +1,33 @@
+<%= form_with model: @recipe do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :difficulty %><br>
+    <%= form.text_area :difficulty %>
+  </p>
+
+  <p>
+    <%= form.label :prep_time %><br>
+    <%= form.text_area :prep_time %>
+  </p>
+
+  <p>
+    <%= form.label :directions %><br>
+    <%= form.text_area :directions %>
+  </p>
+
+  <p>
+    <%= form.label :ingredients %><br>
+    <%= form.select(:TYPE, @recipe.ingredients.collect {|i| [ i.name, i.id ] },
+      { prompt: "Please select"},
+      { multiple: true }) %><br>
+    <%= form.text_area nil %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
