@@ -1,5 +1,5 @@
 Ingredient.destroy_all
-RecipesIngredient.destroy_all
+Measurement.destroy_all
 Recipe.destroy_all
 Category.destroy_all
 User.destroy_all
@@ -23,4 +23,4 @@ Ingredient.create!(name: "celery")
 Ingredient.create!(name: "spinach")
 Ingredient.create!(name: "mushrooms")
 
-Recipe.create!(user_id: 1, category_id: 1, name: "Pumpkin Cheesecake", difficulty: 7, prep_time: 90, directions: "Mix that shit up and pour it in a springform pan.")
+Recipe.create!(user_id: 1, category_id: 4, name: "Pumpkin Cheesecake", difficulty: 7, prep_time: 90, directions: "Mix that shit up and pour it in a springform pan.")

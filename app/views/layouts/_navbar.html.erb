@@ -1,4 +1,4 @@
-<% if current_user%>
+<% if current_user %>
   <%= current_user.username %> |
   <%= link_to "home", root_path %> |
   <%= link_to "logout", session_path(current_user), method: :delete %> 
