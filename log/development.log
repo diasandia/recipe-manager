@@ -4457,3 +4457,324 @@ puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
 >>>>>>> eb26cee6211d40d0bcf1dcfb513d26fd0ac5a984
 =======
 >>>>>>> 0cb012814398b7e2e75f0223a5f86eeba4ae50c9
+Started GET "/articles/1/edit" for 127.0.0.1 at 2017-09-21 10:41:13 -0700
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/articles/1/edit"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:41:22 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  Rendered recipes/show.html.erb within layouts/application (53.9ms)
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 25.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Recipe::ActiveRecord_Associations_CollectionProxy:0x007fdb17ed1c60>):
+    1: <h3><%= @recipe.name %></h3>
+    2: 
+    3: <h4>Submitted By: <%= @recipe.user.username %></h4>
+    4: <h4>Difficulty Level: <%= @recipe.difficulty %></h4>
+    5: <h4>Prep Time: <%= @recipe.prep_time %></h4>
+    6: 
+  
+app/views/recipes/show.html.erb:3:in `_app_views_recipes_show_html_erb___3113514649388647816_70289488092360'
+Started GET "/recipes" for 127.0.0.1 at 2017-09-21 10:41:32 -0700
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (14.2ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+Completed 200 OK in 6052ms (Views: 6044.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:41:44 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  Rendered recipes/show.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Recipe::ActiveRecord_Associations_CollectionProxy:0x007fdb1d91fb68>):
+    1: <h3><%= @recipe.name %></h3>
+    2: 
+    3: <h4>Submitted By: <%= @recipe.user.username %></h4>
+    4: <h4>Difficulty Level: <%= @recipe.difficulty %></h4>
+    5: <h4>Prep Time: <%= @recipe.prep_time %></h4>
+    6: 
+  
+app/views/recipes/show.html.erb:3:in `_app_views_recipes_show_html_erb___3113514649388647816_70289535332960'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:45:19 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  Rendered recipes/show.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `difficulty' for #<Recipe::ActiveRecord_Associations_CollectionProxy:0x007fdb1cf1f898>):
+    1: <h3><%= @recipe.name %></h3>
+    2: 
+    3: <h4>Submitted By: <%= @recipe %></h4>
+    4: <h4>Difficulty Level: <%= @recipe.difficulty %></h4>
+    5: <h4>Prep Time: <%= @recipe.prep_time %></h4>
+    6: 
+    7: <h4>Ingredients:</h4>
+  
+app/views/recipes/show.html.erb:4:in `_app_views_recipes_show_html_erb___3113514649388647816_70289530090100'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:45:46 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mCACHE Recipe Load (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  Rendered recipes/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 10.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Recipe::ActiveRecord_Associations_CollectionProxy:0x007fdb1b472e28>):
+    1: <h3><%= @recipe.name %></h3>
+    2: 
+    3: <h4>Submitted By: <%= @recipe.user.username %></h4>
+    4: <h4>Difficulty Level: <%= @recipe.difficulty %></h4>
+    5: <h4>Prep Time: <%= @recipe.prep_time %></h4>
+    6: 
+  
+app/views/recipes/show.html.erb:3:in `_app_views_recipes_show_html_erb___3113514649388647816_70289502946840'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:47:45 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 7.6ms)
+
+
+  
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+NoMethodError (undefined method `user' for #<Recipe::ActiveRecord_Associations_CollectionProxy:0x007fc40e7a6668>):
+  
+app/controllers/recipes_controller.rb:10:in `show'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:48:04 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.2ms)
+
+
+  
+  [1m[36mCACHE Recipe Load (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+NoMethodError (undefined method `user_id' for #<Recipe::ActiveRecord_Associations_CollectionProxy:0x007fc4114f3bc0>):
+  
+app/controllers/recipes_controller.rb:10:in `show'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:48:48 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mCACHE Recipe Load (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  Rendered recipes/show.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Recipe::ActiveRecord_Associations_CollectionProxy:0x007fc40eb6ae48>):
+    1: <h3><%= @recipe.name %></h3>
+    2: 
+    3: <h4>Submitted By: <%= @recipe.user.username %></h4>
+    4: <h4>Difficulty Level: <%= @recipe.difficulty %></h4>
+    5: <h4>Prep Time: <%= @recipe.prep_time %></h4>
+    6: 
+  
+app/views/recipes/show.html.erb:3:in `_app_views_recipes_show_html_erb___1631600957932677356_70240018335840'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:49:59 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: recipe):
+  
+app/controllers/recipes_controller.rb:66:in `recipe_params'
+app/controllers/recipes_controller.rb:11:in `show'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:50:16 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: recipe):
+  
+app/controllers/recipes_controller.rb:66:in `recipe_params'
+app/controllers/recipes_controller.rb:11:in `show'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:51:35 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: recipe):
+  
+app/controllers/recipes_controller.rb:66:in `recipe_params'
+app/controllers/recipes_controller.rb:11:in `show'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:51:51 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (58.6ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 15.7ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "measurements" does not exist
+LINE 8:                WHERE a.attrelid = '"measurements"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+                     c.collname, col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a
+                LEFT JOIN pg_attrdef d ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+                LEFT JOIN pg_type t ON a.atttypid = t.oid
+                LEFT JOIN pg_collation c ON a.attcollation = c.oid AND a.attcollation <> t.typcollation
+               WHERE a.attrelid = '"measurements"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+     6: 
+     7: <h4>Ingredients:</h4>
+     8: <ul>
+     9:   <% @recipe.ingredients.each do |ingredient| %>
+    10:     <li><%= ingredient.name %></li>
+    11:   <% end %>
+    12: </ul>
+  
+app/views/recipes/show.html.erb:9:in `_app_views_recipes_show_html_erb___1631600957932677356_70240051438660'
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:52:45 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (18.6ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "measurements" does not exist
+LINE 8:                WHERE a.attrelid = '"measurements"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+                     c.collname, col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a
+                LEFT JOIN pg_attrdef d ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+                LEFT JOIN pg_type t ON a.atttypid = t.oid
+                LEFT JOIN pg_collation c ON a.attcollation = c.oid AND a.attcollation <> t.typcollation
+               WHERE a.attrelid = '"measurements"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+     6: 
+     7: <h4>Ingredients:</h4>
+     8: <ul>
+     9:   <% @recipe.ingredients.each do |ingredient| %>
+    10:     <li><%= ingredient.name %></li>
+    11:   <% end %>
+    12: </ul>
+  
+app/views/recipes/show.html.erb:9:in `_app_views_recipes_show_html_erb___1631600957932677356_70240039798420'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5658618547730984640)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5658618547730984640)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 10:54:28 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (44.3ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 9.1ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "measurements" does not exist
+LINE 8:                WHERE a.attrelid = '"measurements"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+                     c.collname, col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a
+                LEFT JOIN pg_attrdef d ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+                LEFT JOIN pg_type t ON a.atttypid = t.oid
+                LEFT JOIN pg_collation c ON a.attcollation = c.oid AND a.attcollation <> t.typcollation
+               WHERE a.attrelid = '"measurements"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+     6: 
+     7: <h4>Ingredients:</h4>
+     8: <ul>
+     9:   <% @recipe.ingredients.each do |ingredient| %>
+    10:     <li><%= ingredient.name %></li>
+    11:   <% end %>
+    12: </ul>
+  
+app/views/recipes/show.html.erb:9:in `_app_views_recipes_show_html_erb__3828447931663003670_70367021753340'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
