@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   resources :categories do 
     resources :recipes
   end
+
+  resources :ingredients, only: [:new, :create]
+  
+  resources :recipes do 
+    resources :measurements
+  end
   
 end
