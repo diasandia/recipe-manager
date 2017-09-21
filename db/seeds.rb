@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Ingredient.destroy_all
+RecipesIngredient.destroy_all
+Recipe.destroy_all
+Category.destroy_all
+User.destroy_all
+
+User.create!(id: 1, username: 'kenken', email: 'ken@ken.ken', password: 'password')
+
+Category.create!(id: 1, name: "Appetizer")
+Category.create!(id: 2, name: "Salad")
+Category.create!(id: 3, name: "Main Course")
+Category.create!(id: 4, name: "Dessert")
+
+Ingredient.create!(name: "milk")
+Ingredient.create!(name: "cheese")
+Ingredient.create!(name: "flour")
+Ingredient.create!(name: "butter")
+Ingredient.create!(name: "sugar")
+Ingredient.create!(name: "eggs")
+Ingredient.create!(name: "apples")
+Ingredient.create!(name: "carrots")
+Ingredient.create!(name: "celery")
+Ingredient.create!(name: "spinach")
+Ingredient.create!(name: "mushrooms")
+
+Recipe.create!(user_id: 1, category_id: 1, name: "Pumpkin Cheesecake", difficulty: 7, prep_time: 90, directions: "Mix that shit up and pour it in a springform pan.")

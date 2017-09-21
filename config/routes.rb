@@ -1,3 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: 'categories#index'
+
+  resources :users, only: [:new, :create, :show]
+
+  resources :sessions, only: [:new, :create, :destroy]
+  
+  resources :categories, only: [:index, :show]
+  
+  resources :categories do 
+    resources :recipes
+  end
+
+  resources :ingredients, only: [:new, :create]
+  
+  resources :recipes do 
+    resources :measurements
+  end
+  
 end
