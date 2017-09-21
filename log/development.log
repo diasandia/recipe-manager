@@ -2538,3 +2538,19 @@ Processing by RecipesController#show as HTML
 Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/recipes/1" for 127.0.0.1 at 2017-09-21 09:32:54 -0700
+  [1m[35m (8.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_form.html.erb (728.7ms)
+  Rendered recipes/show.html.erb within layouts/application (880.1ms)
+  Rendered layouts/_navbar.html.erb (1.7ms)
+  Rendered layouts/_errors.html.erb (0.9ms)
+Completed 200 OK in 1380ms (Views: 1287.1ms | ActiveRecord: 24.4ms)
+
+

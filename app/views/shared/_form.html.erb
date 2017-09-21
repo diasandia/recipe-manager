@@ -22,7 +22,7 @@
   <p>
     <%= form.label :ingredients %><br>
     <%= form.select(:TYPE, @recipe.ingredients.collect {|i| [ i.name, i.id ] },
-      { prompt: "Please select"},
+      { prompt: "Hold shift to select multiple"},
       { multiple: true }) %><br>
     <%= form.text_area nil %>
   </p>
