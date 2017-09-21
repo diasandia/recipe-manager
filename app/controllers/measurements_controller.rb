@@ -22,6 +22,7 @@ class MeasurementsController < ApplicationController
     @ingredient = Ingredient.find_or_create_by(ingredient_params)
 
     if @ingredient.valid?
+      @measurement[:ingredient_id] = @ingredient.id
       if @measurement.save
         redirect_to recipe_path
       else
@@ -29,6 +30,7 @@ class MeasurementsController < ApplicationController
         render 'new'
       end
     else
+      @measurement[:ingredient_id] = @ingredient.id 
       if @measurement.save
         redirect_to recipe_path
       else
