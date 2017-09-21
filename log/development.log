@@ -512,7 +512,6 @@ Processing by SessionsController#new as HTML
 Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms)
 
 
-  
 ActionView::Template::Error (Missing partial layouts/__navbar with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
   * "/Users/jritten/DBC_SF/Phase_3/week_7/Wednesday/recipe-manager/app/views"
 ):
@@ -832,34 +831,28 @@ Processing by RecipesController#index as HTML
   Rendered layouts/_errors.html.erb (0.6ms)
 Completed 200 OK in 37ms (Views: 31.3ms | ActiveRecord: 0.2ms)
 
+Started GET "/categories/1/recipes/1" for 127.0.0.1 at 2017-09-20 21:59:13 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+Completed 200 OK in 82ms (Views: 77.8ms | ActiveRecord: 0.7ms)
+
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2017-09-20 15:39:31 -0700
+=======
+Started GET "/categories/1/recipes/1/measurements/new" for 127.0.0.1 at 2017-09-20 21:59:58 -0700
+>>>>>>> 0cb012814398b7e2e75f0223a5f86eeba4ae50c9
   
-ActiveRecord::NoDatabaseError (FATAL:  database "recipe-manager_development" does not exist
-):
+ActionController::RoutingError (No route matches [GET] "/categories/1/recipes/1/measurements/new"):
   
-activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
-activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
-activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
-activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
-activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
-activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
-activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
-activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
-activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
-activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
-activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
-activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
-activerecord (5.1.4) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
-activerecord (5.1.4) lib/active_record/connection_handling.rb:88:in `connection'
-activerecord (5.1.4) lib/active_record/migration.rb:562:in `connection'
-activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
-activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
-actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
 web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
@@ -886,23 +879,11 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/" for 127.0.0.1 at 2017-09-20 15:40:33 -0700
+Started GET "/categories/1/recipes/1/measurements/new" for 127.0.0.1 at 2017-09-20 22:01:33 -0700
   
-ActiveRecord::PendingMigrationError (
-
-Migrations are pending. To resolve this issue, run:
-
-        bin/rails db:migrate RAILS_ENV=development
-
-):
+ActionController::RoutingError (No route matches [GET] "/categories/1/recipes/1/measurements/new"):
   
-activerecord (5.1.4) lib/active_record/migration.rb:576:in `check_pending!'
-activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
-activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
-actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
 web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
@@ -929,6 +910,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
   [1m[35m (19.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   [1m[35m (5.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5658618547730984640)[0m
@@ -4473,3 +4455,5 @@ puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
 >>>>>>> eb26cee6211d40d0bcf1dcfb513d26fd0ac5a984
+=======
+>>>>>>> 0cb012814398b7e2e75f0223a5f86eeba4ae50c9
