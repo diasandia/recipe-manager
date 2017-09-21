@@ -4,8 +4,11 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    @recipe = @category.recipes
+    # @category = Category.find(params[:id])
+    # @recipe = @category.recipes
+    # p "*" * 100
+    # p @recipe
+    @recipe = Recipe.find(params[:id])
   end
 
   def new
@@ -58,6 +61,6 @@ class RecipesController < ApplicationController
 private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :difficulty, :prep_time, :directions)
+    params.require(:recipe).permit(:name, :difficulty, :prep_time, :directions, :description)
   end
 end
