@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, { through: :measurements, dependent: :destroy }
 
   validates :name, { presence: true, uniqueness: true }
-  validates :difficulty, { greater_than: 0, less_than_or_equal_to: 10 }
+  validates :difficulty, numericality: { greater_than: 0, less_than_or_equal_to: 10 }
   validates :prep_time, { presence: true }
   validates :directions, { presence: true }
 end

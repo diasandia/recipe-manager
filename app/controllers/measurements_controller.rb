@@ -1,20 +1,23 @@
 class MeasurementsController < ApplicationController
   def new
     @user = current_user
-    @recipe = @user.recipes.find(params[:recipe_id])
+    @category = Category.find(params[:categoty_id])
+    @recipe = @category.recipes.find(params[:id])
     @measurement = @recipe.measurements.new
     @ingredient = Ingredient.new
   end
 
   def edit 
     @user = current_user
-    @recipe = @user.recipes.find(params[:recipe_id])
-    @measurement = @recipe.measurements.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @recipe = @category.recipes.find(params[:id])
+    @measurement = @recipe.measurements.find(params[:measurement_id])
   end    
 
   def create
     @user = current_user
-    @recipe = @user.recipes.find(params[:recipe_id])
+    @category = Category.find(params[:category_id])
+    @recipe = @category.recipes.find(params[:id])
     @measurement = @recipe.measurements.new(measurement_params)
     @ingredient = Ingredient.find_or_create_by(ingredient_params)
 
@@ -37,8 +40,9 @@ class MeasurementsController < ApplicationController
 
   def update
     @user = current_user
-    @recipe = @user.recipes.find(params[:recipe_id])
-    @measurement = @recipe.measurements.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @recipe = @category.recipes.find(params[:id])
+    @measurement = @recipe.measurements.find(params[:measurement_id])
 
     if @measurement.update(measurement_params)
       redirect_to @recipe
@@ -50,8 +54,9 @@ class MeasurementsController < ApplicationController
 
   def destroy
     @user = current_user
-    @recipe = @user.recipes.find(params[:recipe_id])
-    @measurement = @recipe.measurements.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @recipe = @category.recipes.find(params[:id])
+    @measurement = @recipe.measurements.find(params[:measurement_id])
     @measurement.destroy
 
     redirect_to recipe_path(@recipe)    
