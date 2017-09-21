@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <nav>
+    <%= render partial: 'layouts/navbar' %>
+    </nav>
+
+    <%= render partial: 'layouts/errors' %>
     <%= yield %>
   </body>
 </html>
