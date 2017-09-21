@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
-  def index 
+  def index
     @recipes = Recipe.all
   end
 
-  def show 
+  def show
     @category = Category.find(params[:id])
     @recipe = @category.recipes
   end
@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
     @recipe = @category.recipes.find(params[:id])
 
     if @recipe.update(recipe_params)
-      redirect_to @recipe 
+      redirect_to @recipe
     else
       @errors = @recipe.errors.full_messages
       render 'edit'
@@ -58,6 +58,6 @@ class RecipesController < ApplicationController
 private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :difficulty, :prep_time, :directions)
+    params.require(:recipe).permit(:name, :difficulty, :prep_time, :directions, :description)
   end
 end

@@ -8,4 +8,5 @@ class Recipe < ApplicationRecord
   validates :difficulty, numericality: { greater_than: 0, less_than_or_equal_to: 10 }
   validates :prep_time, { presence: true }
   validates :directions, { presence: true }
+  validates :description, { presence: true}
 end
