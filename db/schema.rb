@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20170921171447) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "recipes_ingredients", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.integer "amount"
+    t.string "measurement_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false

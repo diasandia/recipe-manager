@@ -1,0 +1,31 @@
+<h1>Welcome , <%= @user.username %></h1>
+
+<% if @user.recipes %>
+
+	<p>Here are your submitted recipes.</p>
+	
+	<% @user.get_user_recipe_categories.each do |category| %>
+		<% recipes_by_category = @user.recipes.select {|recipe| recipe.category_id == category.id} %>
+		<h2><%= category.name %>s</h2>
+		<ul>
+			<% recipes_by_category.each do |recipe| %>
+				<li class="<%= category.name.downcase %>"><%= recipe.name %><br>
+				Difficulty rating: <%= recipe.difficulty %><br>
+				Preparation Time: <%= recipe.prep_time %> minutes<br>
+				Difficulty rating: <%= recipe.difficulty %><br>
+				Directions: <%= recipe.directions %><br><br>
+				link_to "Edit this recipe", recipe_edit_path
+
+
+				<!--<a href="/recipes/<%= recipe.id %>/edit">Edit this recipe</a>--></li>	
+			<% end %>
+		</ul>
+	<% end %>
+<% else %>
+
+	<p>You have no submitted recipes.</p>
+
+<% end %>
+
+
+
