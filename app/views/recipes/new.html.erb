@@ -1,3 +1,6 @@
+
+<%= render "shared/form" %>
+
 <h1>Create a new <%= @category.name %> recipe</h1>
 
 <%= form_with scope: :recipe, url: new_category_recipe_path, local: true do |form| %>
@@ -29,5 +32,5 @@
   <p>
     <%= form.submit %>
   </p>
-
 <% end %>
+

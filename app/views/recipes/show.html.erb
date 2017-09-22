@@ -1,20 +1,22 @@
 <h3><%= @recipe.name %></h3>
 
 <h4>Submitted By: <%= @recipe.user.username %></h4>
+<h5>Described as <%= @recipe.description %> </h5>
 <h4>Difficulty Level: <%= @recipe.difficulty %></h4>
 <h4>Prep Time: <%= @recipe.prep_time %></h4>
 
 <h4>Ingredients:</h4>
+
 <ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
+  <% @recipe.measurements.each do |measurement| %>
+    <li><%= measurement.ingredient.name %></li>
   <% end %>
-</ul>
+</ul><br>
+
+<%= link_to 'Add Ingredient', new_recipe_measurement_path(@recipe.id) %>
 
 <h4>Directions:</h4>
 <p><%= @recipe.directions %></p>
 
-<% if current_user&.id == @recipe.user_id %>
-  <%= render '/shared/form' %>
-<% end %>
+
 
