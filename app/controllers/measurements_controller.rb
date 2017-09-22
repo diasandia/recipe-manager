@@ -1,18 +1,18 @@
 class MeasurementsController < ApplicationController
   def new
     @user = current_user
-    @category = Category.find(params[:categoty_id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.find(params[:id])
     @measurement = @recipe.measurements.new
     @ingredient = Ingredient.new
   end
 
-  def edit 
+  def edit
     @user = current_user
     @category = Category.find(params[:category_id])
     @recipe = @category.recipes.find(params[:id])
     @measurement = @recipe.measurements.find(params[:measurement_id])
-  end    
+  end
 
   def create
     @user = current_user
@@ -59,7 +59,7 @@ class MeasurementsController < ApplicationController
     @measurement = @recipe.measurements.find(params[:measurement_id])
     @measurement.destroy
 
-    redirect_to recipe_path(@recipe)    
+    redirect_to recipe_path(@recipe)
   end
 
 private

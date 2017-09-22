@@ -4,16 +4,13 @@ class RecipesController < ApplicationController
   end
 
   def show
-    # @category = Category.find(params[:id])
-    # @recipe = @category.recipes
-    # p "*" * 100
-    # p @recipe
-    @recipe = Recipe.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @recipe = @category.recipes.find(params[:recipe_id])
   end
 
   def new
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.new
   end
 
