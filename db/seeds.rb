@@ -5,6 +5,7 @@ Category.destroy_all
 User.destroy_all
 
 User.create!(id: 1, username: 'kenken', email: 'ken@ken.ken', password: 'password')
+User.create!(id: 2, username: 'scott', email: 'scott@scott.scott', password: 'password')
 
 Category.create!(id: 1, name: "Appetizer")
 Category.create!(id: 2, name: "Salad")
@@ -24,3 +25,4 @@ Ingredient.create!(name: "spinach")
 Ingredient.create!(name: "mushrooms")
 
 Recipe.create!(user_id: 1, category_id: 4, name: "Pumpkin Cheesecake", description: "the very best cheesecake ever!", difficulty: 7, prep_time: 90, directions: "Mix that shit up and pour it in a springform pan.")
+Recipe.create!(user_id: 2, category_id: 4, name: "Chocolate cake", description: "the very best chocolate cake ever!", difficulty: 6, prep_time: 80, directions: "Just mix it and bake")
