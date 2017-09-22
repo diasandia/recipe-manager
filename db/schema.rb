@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20170921171447) do
     t.boolean "submitted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
