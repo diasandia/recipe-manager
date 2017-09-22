@@ -1,28 +1,22 @@
 class MeasurementsController < ApplicationController
   def new
-    @user = current_user
-    @category = Category.find(params[:categoty_id])
-    @recipe = @category.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @measurement = @recipe.measurements.new
     @ingredient = Ingredient.new
   end
 
   def edit 
-    @user = current_user
-    @category = Category.find(params[:category_id])
-    @recipe = @category.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @measurement = @recipe.measurements.find(params[:measurement_id])
   end    
 
   def create
-    @user = current_user
-    @category = Category.find(params[:category_id])
-    @recipe = @category.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @measurement = @recipe.measurements.new(measurement_params)
     @ingredient = Ingredient.find_or_create_by(ingredient_params)
 
-    if @ingredient.valid?
-      @measurement[:ingredient_id] = @ingredient.id
+    if @ingredient.save
+      @measurement.ingredient_id = @ingredient.id
       if @measurement.save
         redirect_to recipe_path
       else
@@ -30,20 +24,14 @@ class MeasurementsController < ApplicationController
         render 'new'
       end
     else
-      @measurement[:ingredient_id] = @ingredient.id 
-      if @measurement.save
-        redirect_to recipe_path
-      else
-        @errors = @measurement.errors.full_messages
-        render 'new'
-      end
+      # this means the ingredient didn't save
+      @errors = @ingredient.errors.full_messages
+      render 'new'
     end
   end
 
   def update
-    @user = current_user
-    @category = Category.find(params[:category_id])
-    @recipe = @category.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @measurement = @recipe.measurements.find(params[:measurement_id])
 
     if @measurement.update(measurement_params)
@@ -55,10 +43,9 @@ class MeasurementsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
-    @category = Category.find(params[:category_id])
-    @recipe = @category.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @measurement = @recipe.measurements.find(params[:measurement_id])
+    # find where ingredient.id == measurements.ingredient_id
     @measurement.destroy
 
     redirect_to recipe_path(@recipe)    

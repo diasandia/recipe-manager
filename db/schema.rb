@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20170921171447) do
     t.integer "user_id"
     t.integer "category_id"
     t.string "name", null: false
+    t.string "image"
+    t.text "description", null: false
     t.integer "difficulty", null: false
     t.integer "prep_time", null: false
     t.text "directions", null: false

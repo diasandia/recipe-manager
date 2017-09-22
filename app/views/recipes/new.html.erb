@@ -1,0 +1,16 @@
+<%= form_for @recipe do |f| %>
+  <%= hidden_field(:recipe, :category_id) %><br />
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+  <%= f.label :image %>:
+  <%= f.text_field :image %><br />
+  <%= f.label :description %>:
+  <%= f.text_area :description %><br />
+  <%= f.label :difficulty %>:
+  <%= f.text_field :difficulty %><br />
+  <%= f.label :prep_time %>:
+  <%= f.text_field :prep_time %><br />
+  <%= f.label :directions %>:
+  <%= f.text_area :directions %><br />
+  <%= f.submit "Create Recipe" %>
+<% end %>
