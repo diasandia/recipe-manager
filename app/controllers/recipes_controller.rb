@@ -13,23 +13,27 @@ class RecipesController < ApplicationController
 
   def new
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.new
+    p "*" * 100
+    p @recipes
+    p "*" * 100
   end
 
+  
   def edit
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.find(params[:id])
   end
 
   def create
     @user = current_user
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @recipe = @category.recipes.new(recipe_params)
 
     if @recipe.save
-      redirect_to recipe_path
+      redirect_to category_recipes_path
     else
       @errors = @recipe.errors.full_messages
       render 'new'

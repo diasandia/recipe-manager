@@ -1,17 +1,24 @@
 <div class="container">
   <div class="row">
-    <div id="sidebar" class="col-xs-3">
-    THIS IS A SIDEBAR
-    A BAR FOR SIDES!!!
-    </div>
     <div id="content" class="col-xs-9">
-      <h1><%= @category.name %></h1>
+      <h1><%= @category.name %>s</h1>
       <ul>
         <% @recipes.each do |recipe| %>
-        <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
-        submitted by: <a href="/users/<%= recipe.user.id %>"><%= recipe.user.username %></a>
+          <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a><br>
+          submitted by: 
+          <% if current_user.id == recipe.user_id %>
+            <a href="/users/<%= recipe.user.id %>"><%= recipe.user.username %></a>
+          <% else %>
+            <%= recipe.user.username %>
+          <% end %><br>
+          <% if current_user.id == recipe.user_id %><%= link_to "Edit this recipe", edit_category_recipe_path(@category, recipe)  %><% end %>
+
+        </li><br>
         <% end %>
       </ul>
+
+      Create a new <%= @category.name %> <%= link_to "recipe", new_category_recipe_path(@category)  %>    
+
     </div>
   </div>
 </div>
