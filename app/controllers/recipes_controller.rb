@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
 
   def show
     @category = Category.find(params[:category_id])
-    @recipe = @category.recipes.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def new
@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.new
   end
 
+  
   def edit
     @category = Category.find(params[:category_id])
     @recipe = current_user.recipes.find(params[:id])
@@ -53,6 +54,6 @@ class RecipesController < ApplicationController
 private
 
   def recipe_params
-    params.require(:recipe).permit(:category_id, :name, :difficulty, :prep_time, :directions, :description)
+    params.require(:recipe).permit(:category_id, :name, :description, :difficulty, :prep_time, :directions)
   end
 end
