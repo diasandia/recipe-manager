@@ -15,18 +15,16 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @category = Category.find(params[:id])
-    @recipe = @category.recipes.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def create
-    @user = current_user
-    @category = Category.find(params[:id])
-    @recipe = @category.recipes.new(recipe_params)
+    @category = Category.find(params[:recipe][:category_id])
+    @recipe = current_user.recipes.new(recipe_params)
 
     if @recipe.save
-      redirect_to recipe_path
+      redirect_to recipe_path(@recipe)
     else
       @errors = @recipe.errors.full_messages
       render 'new'
@@ -34,9 +32,8 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @category = Category.find(params[:id])
-    @recipe = @category.recipes.find(params[:id])
+    @category = Category.find(params[:recipe][:category_id])
+    @recipe = current_user.recipes.find(params[:id])
 
     if @recipe.update(recipe_params)
       redirect_to @recipe
@@ -47,9 +44,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @user = current_user
-    @category = Category.find(params[:id])
-    @recipe = @category.recipes.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @recipe = current_user.recipes.find(params[:id])
     @recipe.destroy
 
     redirect_to recipe_path(@recipe)
@@ -58,6 +54,6 @@ class RecipesController < ApplicationController
 private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :difficulty, :prep_time, :directions, :description)
+    params.require(:recipe).permit(:category_id, :name, :difficulty, :prep_time, :directions, :description)
   end
 end
