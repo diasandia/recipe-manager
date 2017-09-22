@@ -1,9 +1,19 @@
 <% if current_user %>
-  <%= current_user.username %> |
-  <%= link_to "home", root_path %> |
-  <%= link_to "logout", session_path(current_user), method: :delete %> 
+  <nav class="fixed-navbar">
+    <%= current_user.username %>
+    <%= link_to "home", root_path, :class => 'nav-bar' %>
+    <%= link_to "logout", session_path(current_user), :class => 'nav-bar', method: :delete %>
+  </nav>
 <% else  %>
-  <%= link_to "login", new_session_path %> |
-  <%= link_to "home", root_path %> |
-  <%= link_to "register", new_user_path %> 
+  <nav class="fixed-navbar">
+    <%= link_to "login", new_session_path, :class => 'nav-bar' %>
+    <%= link_to "register", new_user_path, :class => 'nav-bar' %>
+    <%= link_to "home", root_path, :class => 'nav-bar' %>
+  </nav>
 <% end %>
+<!--
+   <a href="contact.html">Contact</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+      </nav> -->
