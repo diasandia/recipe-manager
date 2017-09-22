@@ -1,17 +1,24 @@
-<%= form_with model: @recipe do |form| %>
+<%= form_for @recipe do |form| %>
+  <input type="hidden" name="recipe[category_id]" value="#{@recipe.category_id}">
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
 
   <p>
+    <%= form.label :description %><br>
+    <%= form.text_field :description  %>
+  </p>
+
+  <p>
     <%= form.label :difficulty %><br>
-    <%= form.text_area :difficulty %>
+    <%= form.text_field :difficulty %>
   </p>
 
   <p>
     <%= form.label :prep_time %><br>
-    <%= form.text_area :prep_time %>
+    <%= form.text_field :prep_time %>
   </p>
 
   <p>
@@ -20,14 +27,12 @@
   </p>
 
   <p>
-    <%= form.label :ingredients %><br>
-    <%= form.select(:TYPE, @recipe.ingredients.collect {|i| [ i.name, i.id ] },
-      { prompt: "Hold shift to select multiple"},
-      { multiple: true }) %><br>
-    <%= form.text_area nil %>
+    <%= form.label :image %><br>
+    <%= form.text_field :image %><br>
   </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <%= form.submit "Create a recipe!" %>
+
 <% end %>
+
+
