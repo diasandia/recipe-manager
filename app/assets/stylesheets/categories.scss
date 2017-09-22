@@ -1,3 +1,25 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logo h1 {
+  padding-top: 100px;
+  text-align: center;
+  font-size: 90px;
+  font-family: 'Satisfy', cursive;
+  color: white;
+}
+
+
+.main-header {
+  background-color: rgb(67,74,82);
+  padding-top: 170px;
+  height: 675px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#home-img {
+  background-image: url('/assets/food_image.jpg');
+}

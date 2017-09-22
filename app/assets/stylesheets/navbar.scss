@@ -1,0 +1,27 @@
+// .nav-bar{
+//   float: right;
+//   color: #484848;
+// }
+
+
+.fixed-navbar {
+  background-color: rgba(3,3,3,0.7);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-right: 20px;
+}
+
+.fixed-navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a:hover{                /* Pseudo-class ---------/*/
+  color: #FF5A5F;
+}
