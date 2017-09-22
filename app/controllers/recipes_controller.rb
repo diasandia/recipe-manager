@@ -9,11 +9,11 @@ class RecipesController < ApplicationController
   end
 
   def new
-    # @user = current_user
     @category = Category.find(params[:category_id])
     @recipe = current_user.recipes.new
   end
 
+  
   def edit
     @category = Category.find(params[:category_id])
     @recipe = current_user.recipes.find(params[:id])
@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
     @category = Category.find_by(params[:category_id])
     @recipe = current_user.recipes.new(recipe_params)
     @recipe.category = @category
+    
     if @recipe.save
       redirect_to user_path(current_user)
     else
@@ -54,6 +55,6 @@ class RecipesController < ApplicationController
 private
 
   def recipe_params
-    params.require(:recipe).permit(:category_id, :name, :difficulty, :prep_time, :directions, :description)
+    params.require(:recipe).permit(:category_id, :name, :description, :difficulty, :prep_time, :directions)
   end
 end

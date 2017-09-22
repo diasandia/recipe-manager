@@ -1,1 +1,36 @@
+
 <%= render "shared/form" %>
+
+<h1>Create a new <%= @category.name %> recipe</h1>
+
+<%= form_with scope: :recipe, url: new_category_recipe_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+ <p>
+    <%= form.label :difficulty %><br>
+    <%= form.text_field :difficulty %>
+  </p>
+
+  <p>
+    <%= form.label :prep_time %><br>
+    <%= form.text_field :prep_time %>
+  </p>
+
+  <p>
+    <%= form.label :directions %><br>
+    <%= form.text_field :directions %>
+  </p>
+  
+ <p>
+    <%= form.label :description %><br>
+    <%= form.text_field :description %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+  
+<% end %>
