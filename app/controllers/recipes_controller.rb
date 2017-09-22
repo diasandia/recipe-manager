@@ -4,8 +4,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:category_id])
-    @recipe = @category.recipes.find(params[:recipe_id])
+    @category = Category.find_by(params[:category_id])
+    @recipe = @category.recipes.find_by(params[:recipe_id])
   end
 
   def new
@@ -20,8 +20,11 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:recipe][:category_id])
+    @category = Category.find_by(params[:category_id])
     @recipe = current_user.recipes.new(recipe_params)
+    @recipe.category = @category
+    p "*" * 100
+    p @recipe.category
 
     if @recipe.save
       redirect_to recipe_path(@recipe)

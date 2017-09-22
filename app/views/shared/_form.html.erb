@@ -1,4 +1,6 @@
-<%= form_with model: @recipe do |form| %>
+<%= form_for @recipe do |form| %>
+  <input type="hidden" name="recipe[category_id]" value="#{@recipe.category_id}">
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
