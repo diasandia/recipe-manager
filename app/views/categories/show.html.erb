@@ -1,17 +1,15 @@
 <div class="container">
   <div class="row">
-    <div id="sidebar" class="col-xs-3">
-    THIS IS A SIDEBAR
-    A BAR FOR SIDES!!!
-    </div>
     <div id="content" class="col-xs-9">
-      <h1><%= @category.name %></h1>
-      <ul>
-        <% @recipes.each do |recipe| %>
-        <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
-        submitted by: <a href="/users/<%= recipe.user.id %>"><%= recipe.user.username %></a>
-        <% end %>
-      </ul>
+      <header><h1><%= @category.name %></h1></header>
+      <section>
+        <ul>
+          <% @recipes.each do |recipe| %>
+          <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+          submitted by: <a href="/users/<%= recipe.user.id %>"><%= recipe.user.username %></a>
+          <% end %>
+        </ul>
+      </section>
     </div>
   </div>
 </div>
